@@ -1,0 +1,11 @@
+{
+	"name": "@app/shared",
+	"private": true,
+	"type": "module",
+	"description": "Project containing shared library for our monorepo",
+	"scripts": {
+		"build": "tsc"
+	},
+	"dependencies": {},
+	"devDependencies": {}
+}
