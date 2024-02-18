@@ -1,0 +1,31 @@
+{
+	"name": "@app/webapp",
+	"private": true,
+	"type": "module",
+	"description": "Simple page application project using to build the web application",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@app/shared": "workspace:^",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"@chakra-ui/react": "^2.8.2",
+		"@emotion/react": "^11.11.3",
+		"@emotion/styled": "^11.11.0",
+		"framer-motion": "^11.0.3",
+		"@fontsource/open-sans": "^5.0.22",
+		"@fontsource/raleway": "^5.0.16",
+		"react-query": "^3.39.3"
+	},
+	"devDependencies": {
+		"@types/react": "^18.2.43",
+		"@types/react-dom": "^18.2.17",
+		"@vitejs/plugin-react": "^4.2.1",
+		"typescript": "^5.2.2",
+		"vite": "^5.0.8"
+	}
+}
