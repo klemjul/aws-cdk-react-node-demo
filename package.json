@@ -1,27 +1,39 @@
 {
-  "name": "aws-cdk-react-node-demo",
-  "version": "0.1.0",
-  "bin": {
-    "aws-cdk-react-node-demo": "bin/aws-cdk-react-node-demo.js"
-  },
-  "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
-    "test": "jest",
-    "cdk": "cdk"
-  },
-  "devDependencies": {
-    "@types/jest": "^29.5.11",
-    "@types/node": "20.11.6",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.1.2",
-    "aws-cdk": "2.123.0",
-    "ts-node": "^10.9.2",
-    "typescript": "~5.3.3"
-  },
-  "dependencies": {
-    "aws-cdk-lib": "2.123.0",
-    "constructs": "^10.0.0",
-    "source-map-support": "^0.5.21"
-  }
+	"description": "Tooling for all project on this monorepo (linter, formater)",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/klemjul/aws-cdk-react-node-demo"
+	},
+	"type": "module",
+	"scripts": {
+		"lint": "eslint 'packages/**/*.{js,jsx,ts,tsx}'",
+		"lint-fix": "eslint --fix 'packages/**/*.{js,jsx,ts,tsx}'",
+		"build": "pnpm build-backend && pnpm build-frontend && pnpm build-infra",
+		"build-backend": "pnpm run -C packages/lambdas build",
+		"build-infra": "pnpm run -C packages/infra build",
+		"build-frontend": "pnpm run -C packages/webapp build",
+		"deploy": "pnpm build && pnpm run -C packages/infra deploy --all",
+		"deploy-backend": "pnpm build-backend && pnpm build-infra && pnpm run -C packages/infra deploy *Backend*",
+		"deploy-frontend": "pnpm build-webapp && pnpm build-infra && pnpm run -C packages/infra deploy *Frontend*",
+		"destroy": "pnpm run -C packages/infra destroy --all",
+		"format": "prettier -c 'packages/**/*.{js,jsx,ts,tsx}' ",
+		"format-fix": "prettier -c 'packages/**/*.{js,jsx,ts,tsx}' --write"
+	},
+	"devDependencies": {
+		"eslint": "^8.56.0",
+		"eslint-config-airbnb": "^19.0.4",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-config-airbnb-typescript": "^17.1.0",
+		"eslint-config-prettier": "^9.1.0",
+		"eslint-plugin-react": "^7.33.2",
+		"eslint-plugin-react-hooks": "^4.6.0",
+		"eslint-plugin-jsx-a11y": "^6.8.0",
+		"eslint-plugin-import": "^2.29.1",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"@typescript-eslint/eslint-plugin": "^6.10.0",
+		"@typescript-eslint/parser": "^6.10.0",
+		"prettier": "^3.2.4",
+		"typescript": "^5.3.3"
+	}
 }
