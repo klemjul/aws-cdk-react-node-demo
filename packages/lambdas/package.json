@@ -1,0 +1,26 @@
+{
+	"name": "@app/lambdas",
+	"private": true,
+	"type": "module",
+	"description": "Project containing lambdas code that will be packaged with esbuild and pushed to aws during cdk deployment",
+	"scripts": {
+		"build": "tsc"
+	},
+	"dependencies": {
+		"@app/shared": "workspace:^",
+		"uuid": "^9.0.1",
+		"joi": "^17.12.1"
+	},
+	"devDependencies": {
+		"@types/aws-lambda": "^8.10.133",
+		"@types/node": "^20.11.16",
+		"@types/uuid": "^9.0.8"
+	},
+	"peerDependencies": {
+		"@aws-sdk/client-sqs": "^3.511.0",
+		"@aws-sdk/client-dynamodb": "^3.511.0",
+		"@aws-sdk/util-dynamodb": "^3.511.0",
+		"@aws-sdk/client-apigatewaymanagementapi": "^3.511.0",
+		"@aws-sdk/lib-dynamodb": "^3.515.0"
+	}
+}
