@@ -1,0 +1,24 @@
+{
+	"name": "@app/infra",
+	"private": true,
+	"type": "module",
+	"description": "Infrastructure-as-Code project using CDK to deploy AWS resources.",
+	"scripts": {
+		"build": "tsc",
+		"synth": "pnpm build && cdk synth",
+		"deploy": "pnpm build && cdk deploy",
+		"destroy": "cdk destroy",
+		"cdk": "cdk"
+	},
+	"dependencies": {
+		"aws-cdk-lib": "2.123.0",
+		"constructs": "^10.0.0"
+	},
+	"devDependencies": {
+		"@types/node": "20.11.6",
+		"aws-cdk": "2.123.0",
+		"ts-node": "^10.9.2",
+		"typescript": "~5.3.3",
+		"esbuild": "^0.20.0"
+	}
+}
