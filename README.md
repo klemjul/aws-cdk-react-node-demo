@@ -104,6 +104,15 @@ FRONTEND_DOMAIN_NAME=$(aws cloudformation describe-stacks  --stack-name "$STAGE-
 pnpm run destroy
 ```
 
+## Security best practices
+
+This repository is aimed to quickly demonstrate an fullstack application on AWS using CDK, here are three recommendations about unimplemented features or recommended refactorings
+
+- Following [IAM security best practices and least privilege principle](https://docs.aws.amazon.com/fr_fr/IAM/latest/UserGuide/best-practices.html): be carefull when using cdk functions helpers that generate IAM permissions like [DynamoDB.Table.grantReadWriteData](https://docs.aws.amazon.com/cdk/api/v2/docs/aws-cdk-lib.aws_dynamodb.Table.html#grantwbrreadwbrwritewbrdatagrantee), its generally better to manualy define IAM Rôle and Permissions with minimum privilege.
+- The Frontend part is polling the backend API Gateway for asynchronous workflow. Consider using bidirectional communication such as WebSockets.
+- The application, in general, is not secured with authentication and firewall mechanisms. Please take a look at the AWS Architecture Evolution section.
+- To avoid unintentional data loss with stateful resources, consider using a different Removal Policy for resources such as DynamoDB tables, SQS, or S3.
+
 ## Usefull links
 
 - [CDK Best practices](https://docs.aws.amazon.com/cdk/v2/guide/best-practices.html)
