@@ -58,9 +58,9 @@ export default class FrontendStack extends cdk.Stack {
 		)
 
 		// 4. Stack Output usefull values
-		const httpApiEndpointOutput = new cdk.CfnOutput(
+		const cloudFrontDomainNameOutput = new cdk.CfnOutput(
 			this,
-			"RestaurantHttpApiUrlOutput",
+			"CloudFrontDomainNameOutput",
 			{
 				value: cfDistribution.distributionDomainName,
 				exportName: "restaurant-cloudfront-domain-name",

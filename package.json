@@ -15,7 +15,7 @@
 		"build-frontend": "pnpm run -C packages/webapp build",
 		"deploy": "pnpm build && pnpm run -C packages/infra deploy --all",
 		"deploy-backend": "pnpm build-backend && pnpm build-infra && pnpm run -C packages/infra deploy *Backend*",
-		"deploy-frontend": "pnpm build-webapp && pnpm build-infra && pnpm run -C packages/infra deploy *Frontend*",
+		"deploy-frontend": "pnpm build-frontend && pnpm build-infra && pnpm run -C packages/infra deploy *Frontend*",
 		"destroy": "pnpm run -C packages/infra destroy --all",
 		"format": "prettier -c 'packages/**/*.{js,jsx,ts,tsx}' ",
 		"format-fix": "prettier -c 'packages/**/*.{js,jsx,ts,tsx}' --write"

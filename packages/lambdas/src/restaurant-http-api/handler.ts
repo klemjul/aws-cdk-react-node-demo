@@ -16,6 +16,7 @@ const { TABLE_TABLE_NAME, ORDER_TABLE_NAME, STAGE, MENU_TABLE_NAME } =
 const ddbClient = new DynamoDBClient({})
 const ddbDocClient = DynamoDBDocument.from(ddbClient)
 
+// https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
 export default async function main(
 	event: APIGatewayProxyEventV2,
 	context: Context,

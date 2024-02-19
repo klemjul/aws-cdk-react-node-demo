@@ -1,5 +1,4 @@
 import * as cdk from "aws-cdk-lib"
-import * as apigw from "aws-cdk-lib/aws-apigatewayv2"
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb"
 import * as lambda from "aws-cdk-lib/aws-lambda"
 import * as lambdaEventSources from "aws-cdk-lib/aws-lambda-event-sources"

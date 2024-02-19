@@ -22,7 +22,7 @@ async function processRecord(record: DynamoDBRecord) {
 	}
 	const tableOrder = await getTableForOrder(newImage)
 	if (!tableOrder) {
-		// delete order if the table doesnt exist
+		// delete order if the associated table doesn't exist
 		await ddbDocClient.delete({
 			TableName: ORDER_TABLE_NAME,
 			Key: { id: newImage.id },
@@ -31,7 +31,7 @@ async function processRecord(record: DynamoDBRecord) {
 	}
 
 	if (newImage.state === "WAITING") {
-		// push message to the order queue
+		// order is waiting push message to the kitchen queue to process it
 		await sqsClient.send(
 			new SendMessageCommand({
 				QueueUrl: KITCHEN_QUEUE_URL,
